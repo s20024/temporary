@@ -1,0 +1,1 @@
+cat test.html | sed -e 's/と/affffff/g' | sed -e 's/あ/\#f7461c/g' | sed -e 's/み/\#9e8318/g' | sed -e 's/は/\#ffc07b/g' | sed -e 's/き/\#ffc07b/g' > kome.html
