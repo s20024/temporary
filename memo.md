@@ -4,7 +4,7 @@
 - テレワークに対する維持などの企業の割合
     [緊急事態宣言から半年、テレワークを継続している企業の割合は？　出社日は「決めていない」が5割 (1/2)](https://www.itmedia.co.jp/business/articles/2011/09/news082.html)
 - [テレワーク利用で感じた課題など](https://saleszine.jp/news/detail/1599)
-[テレワーク利用で感じた課題](https://slz-cdn.shoeisha.jp/static/images/article/1599/1599_03.png)
+![テレワーク利用で感じた課題](https://slz-cdn.shoeisha.jp/static/images/article/1599/1599_03.png)
 ---
 
 > 日本生産性本部は、１０月上旬に実施した新型コロナウイルスに関する会社員の意識調査の結果を公表し、テレワークの実施率は１８．９％だった。５月調査の３１．５％から大きく低下したが、前回７月調査の２０．２％からはほぼ横ばいだった。
