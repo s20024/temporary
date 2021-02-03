@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>unnko</title>
+    <style>
+        .main{
+            float:center;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <canvas id="board" width="672" height="576" style="border: 1px solid black;"></canvas>
+    </div>
+
+    <script>
+        const board = document.querySelector("#board")
+        const ctx = board.getContext("2d")
+        const ryota_chara = new Image()
+        const you_chara = new Image()
+        // ryota_chara.src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png"
+        // you_chara.src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png"
+        document.addEventListener("keydown", you_move_key)
+        document.addEventListener("keyup", you_stop_key)
+        
+        let ryota_position = [288, 96]
+        let ryota_move = [0, 0]
+        let you_position = [288, 384]
+        let you_move = [0, 0]
+        console.log(ryota_move)
+
+        function you_move_key(e) {
+            if (e.key == 'a'){
+                you_move[0] = -10
+            } else if (e.key == 'd'){
+                you_move[0] = 10
+            } else if (e.key == 'w'){
+                you_move[1] = -10
+            } else if (e.key == 's'){
+                you_move[1] = 10
+            }
+        }
+
+        function you_stop_key(e) {
+            if (e.key == "a"){
+                you_move[0] = 0
+            } else if (e.key == 'd'){
+                you_move[0] = 0
+            } else if (e.key == 'w'){
+                you_move[1] = 0
+            } else if (e.key == 's'){
+                you_move[1] = 0
+            }
+        }
+
+        window.onload = () => {
+        const ryota_chara = new Image()
+        const you_chara = new Image()
+            ryota_chara.src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png"
+            you_chara.src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png"
+            
+            ctx.fillStyle = "green"
+            ctx.fillRect(0,0,672,576)
+            ctx.drawImage(ryota_chara, ryota_position[0], ryota_position[1])
+            ctx.drawImage(you_chara, you_position[0], you_position[1])
+        }
+
+        function main() {
+            ryota_position[0] = ryota_position[0] + ryota_move[0]
+            ryota_position[1] = ryota_position[1] + ryota_move[1]
+            you_position[0] = you_position[0] + you_move[0]
+            you_position[1] = you_position[1] + you_move[1]
+            
+            window.onload();
+        }
+        let App = setInterval(main, 50)
+    </script>
+    
+</body>
+</html>
