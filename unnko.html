@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="main">
-        <canvas id="board" width="672" height="576" style="border: 1px solid black;"></canvas>
+        <canvas id="board" width="672" height="450" style="border: 1px solid black;"></canvas>
     </div>
 
     <script>
@@ -19,14 +19,19 @@
         const ctx = board.getContext("2d")
         const ryota_chara = new Image()
         const you_chara = new Image()
+        const kusa_chara = new Image()
+        const you_attack1 = new Image()
+        const you_attack2 = new Image()
+        const you_attack3 = new Image()
+
         // ryota_chara.src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png"
         // you_chara.src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png"
         document.addEventListener("keydown", you_move_key)
         document.addEventListener("keyup", you_stop_key)
         
-        let ryota_position = [288, 96]
+        let ryota_position = [288, 48]
         let ryota_move = [0, 0]
-        let you_position = [288, 384]
+        let you_position = [288, 306]
         let you_move = [0, 0]
         console.log(ryota_move)
 
@@ -39,6 +44,8 @@
                 you_move[1] = -10
             } else if (e.key == 's'){
                 you_move[1] = 10
+            } else if (e.key == 'spase'){
+                
             }
         }
 
@@ -57,13 +64,18 @@
         window.onload = () => {
         const ryota_chara = new Image()
         const you_chara = new Image()
-            ryota_chara.src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png"
+            ryota_chara.src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/68.png"
             you_chara.src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png"
-            
-            ctx.fillStyle = "green"
-            ctx.fillRect(0,0,672,576)
+            kusa_chara.src = "https://pbs.twimg.com/media/CE40iP8UIAABk_b.png"
+            you_attack1.src = "type5.png"
+            you_attack2.src = "type5.png"
+            you_attack3.src = "type5.png"
+
+            // ctx.fillStyle = "green"
+            ctx.drawImage(kusa_chara,0,0)
             ctx.drawImage(ryota_chara, ryota_position[0], ryota_position[1])
             ctx.drawImage(you_chara, you_position[0], you_position[1])
+            ctx.drawImage(you_attack1, you_position[0] + 25, you_position[1] - 30)
         }
 
         function main() {
@@ -74,8 +86,12 @@
             
             window.onload();
         }
+
+        
+
         let App = setInterval(main, 50)
     </script>
+    <button>Game start</button>
     
 </body>
 </html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>良太（マリオ）</title>
+</head>
+
+<body>
+
+    <div class="head">
+    </div>
+
+    <div class="main">
+        <canvas width="30" height="30" id="canvas" style="border:1px solid black"></canvas>
+    </div>
+
+    <script>
+        // 初期設定~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        // canvasの設定
+        const CANVAS = document.getElementById("canvas")
+        const CONTEXT = CANVAS.getContext("2d")
+        CONTEXT.fillStyle = 'red'
+        CONTEXT.fillRect(0,0, 40,40)
+    </script>
+
+</body>
+</html>
