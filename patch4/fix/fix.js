@@ -5,28 +5,28 @@ chrome.storage.local.get(['chromememo'], function(obj){
   memos = obj.chromememo;
 })
 
-
-/*
 loadData();
 
 //データの読み込み
 function loadData(){
   chrome.storage.local.get(['chromememo'], function(obj){
-    memo = obj.chromememo;
 
-    //データがない場合の初期化
-    if(!memo){
-      memo = [ {text: "", lastUpdate: new Date()} ];
-      chrome.storage.local.set({chromememo:memo}, function(){});
-      return;
-    }
-    $('#memo').val(memo.text);
+    var url = new URL(window.location.href)
+    var params = url.searchParams
+    var id = Number.parseInt(params.get('id'), 10)
+    name = obj.chromememo[id].name;
+    memo = obj.chromememo[id].value;
+
+    $('#memo').val(memo);
+    $('#name').val(name)
   });
 }
-*/
 
 //保存ボタンが押されたとき
-$('#save').on('click', function(){
+$('#fix').on('click', function(){
+  var url = new URL(window.location.href)
+  var params = url.searchParams
+  var id = Number.parseInt(params.get('id'), 10)
   name = {
     text: $('#name').val(),
     lastUpdate: new Date()
@@ -42,15 +42,16 @@ $('#save').on('click', function(){
       lastUpdate: new Date()
     }
   }
+  memos.splice(id,1)
+
 
   try {
     memos.push({"name": name.text, "value": memo.text})
   } catch(error) {
-    chrome.storage.local.set({chromememo: [{"name": name.text, "value": memo.text}]}, function(){})
+    chrome.storage.local.set({chromememo: []}, function(){})
   }
-
   chrome.storage.local.set({chromememo: memos}, function(){
-    alert('保存が完了しました');
+    alert('内容を変更しました。');
   });
 });
 

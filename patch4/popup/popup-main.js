@@ -46,7 +46,7 @@ $('#save').on('click', function(){
   try {
     memos.push({"name": name.text, "value": memo.text})
   } catch(error) {
-    chrome.storage.local.set({chromememo: [{"name": name.text, "value": memo.text}]}, function(){})
+    chrome.storage.local.set({chromememo: []}, function(){})
   }
 
   chrome.storage.local.set({chromememo: memos}, function(){
