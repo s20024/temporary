@@ -1,7 +1,13 @@
 let memos;
-let moveurl;
 chrome.storage.local.get(['chromememo'], function(obj){
   memos = obj.chromememo
+
+  try {
+    console.log(memos[0])
+  } catch(error) {
+    memos = []
+  }
+
   for (var i = 0; i < memos.length; i++){
     var li = document.createElement('li')
     li.id = i
@@ -12,8 +18,7 @@ chrome.storage.local.get(['chromememo'], function(obj){
     document.getElementById(`${i}`).appendChild(a)
   }
 })
-/*
-li.addEventlistener('click', ()=> {
-  location.href = `./next.html?id=${item}`
+
+$('#toinput').on('click', function() {
+  location.href = '../input/input.html'
 })
-*/

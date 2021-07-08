@@ -4,16 +4,15 @@ let name;
 chrome.storage.local.get(['chromememo'], function(obj){
   memos = obj.chromememo;
 })
+var url = new URL(window.location.href)
+var params = url.searchParams
+var id = Number.parseInt(params.get('id'), 10)
 
 loadData();
 
 //データの読み込み
 function loadData(){
   chrome.storage.local.get(['chromememo'], function(obj){
-
-    var url = new URL(window.location.href)
-    var params = url.searchParams
-    var id = Number.parseInt(params.get('id'), 10)
     name = obj.chromememo[id].name;
     memo = obj.chromememo[id].value;
 
@@ -24,9 +23,6 @@ function loadData(){
 
 //保存ボタンが押されたとき
 $('#fix').on('click', function(){
-  var url = new URL(window.location.href)
-  var params = url.searchParams
-  var id = Number.parseInt(params.get('id'), 10)
   name = {
     text: $('#name').val(),
     lastUpdate: new Date()
@@ -42,14 +38,8 @@ $('#fix').on('click', function(){
       lastUpdate: new Date()
     }
   }
-  memos.splice(id,1)
 
-
-  try {
-    memos.push({"name": name.text, "value": memo.text})
-  } catch(error) {
-    chrome.storage.local.set({chromememo: []}, function(){})
-  }
+  memos[id] = {"name": name.text, "value": memo.text}
   chrome.storage.local.set({chromememo: memos}, function(){
     alert('内容を変更しました。');
   });

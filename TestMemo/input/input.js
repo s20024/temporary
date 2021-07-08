@@ -5,27 +5,6 @@ chrome.storage.local.get(['chromememo'], function(obj){
   memos = obj.chromememo;
 })
 
-
-/*
-loadData();
-
-//データの読み込み
-function loadData(){
-  chrome.storage.local.get(['chromememo'], function(obj){
-    memo = obj.chromememo;
-
-    //データがない場合の初期化
-    if(!memo){
-      memo = [ {text: "", lastUpdate: new Date()} ];
-      chrome.storage.local.set({chromememo:memo}, function(){});
-      return;
-    }
-    $('#memo').val(memo.text);
-  });
-}
-*/
-
-//保存ボタンが押されたとき
 $('#save').on('click', function(){
   name = {
     text: $('#name').val(),
@@ -57,3 +36,21 @@ $('#save').on('click', function(){
 $('#changetolistview').on('click', function() {
   location.href = '../listview/listview.html'
 })
+
+$('#copy').on('click', function(){
+
+  // 対象のタブのidを取得したい
+  chrome.tabs.query( {active:true, currentWindow:true}, function(tabs){
+
+    // 取得したタブid(tabs[0].id)を利用してsendMessageする
+    chrome.tabs.sendMessage(tabs[0].id, {message: '選択範囲ちょうだい'}, function(item){
+
+      // sendMessageのレスポンスが item で取得できるのでそれを使って処理する
+      if(!item){
+        alert('選択範囲が見つかりませんでした');
+        return;
+      }
+      $('#memo').val(item);
+    });
+  });
+});

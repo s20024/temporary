@@ -1,11 +1,10 @@
 let memos
+var url = new URL(window.location.href)
+var params = url.searchParams
+var id = Number.parseInt(params.get('id'), 10)
+
 chrome.storage.local.get(['chromememo'], function(obj){
   memos = obj.chromememo
-
-  var url = new URL(window.location.href)
-  var params = url.searchParams
-  
-  var id = Number.parseInt(params.get('id'), 10)
   
   var title = document.createElement('h3')
   title.textContent = memos[id].name.toString()
@@ -14,7 +13,6 @@ chrome.storage.local.get(['chromememo'], function(obj){
   var content = document.createElement('p')
   content.textContent = memos[id].value.toString()
   document.getElementById('contentview').appendChild(content)
-  // deletethis(id)
 })
 
 $('#copy_content').on('click', function() {
@@ -34,12 +32,18 @@ $('#copy_content').on('click', function() {
 })
 
 $('#delete_this').on('click', function() {
-  var url = new URL(window.location.href)
-  var params = url.searchParams
-  
-  var id = Number.parseInt(params.get('id'), 10)
-
-  deletethis(id)
+  if(confirm('削除していいですか？')) {
+    chrome.storage.local.get(['chromememo'], function(obj) {
+      memos = obj.chromememo
+      memos.splice(id, 1)
+      chrome.storage.local.set({chromememo: memos}, function() {
+        alert('削除しました。')
+        window.close()
+      })
+    })
+  } else {
+    alert('キャンセルしました。')
+  }
 })
 
 $('#back').on('click', function() {
