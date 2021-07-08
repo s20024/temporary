@@ -43,7 +43,11 @@ $('#save').on('click', function(){
     }
   }
 
-  memos.push({"name": name.text, "value": memo.text})
+  try {
+    memos.push({"name": name.text, "value": memo.text})
+  } catch(error) {
+    chrome.storage.local.set({chromememo: []}, function(){})
+  }
 
   chrome.storage.local.set({chromememo: memos}, function(){
     alert('保存が完了しました');
