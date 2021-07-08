@@ -42,3 +42,13 @@ $('#delete_this').on('click', function() {
   deletethis(id)
 })
 
+$('#back').on('click', function() {
+  location.href = '../listview/listview.html'
+})
+
+$('#fix').on('click', function() {
+  var url = new URL(window.location.href)
+  var params = url.searchParams
+  var id = Number.parseInt(params.get('id'), 10)
+  location.href = `../fix/fix.html?id=${id}`
+})
