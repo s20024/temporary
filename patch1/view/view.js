@@ -7,7 +7,7 @@ chrome.storage.local.get(['chromememo'], function(obj){
   memos = obj.chromememo
   
   var title = document.getElementById("name")
-  $('#name').val(memos[id].name)
+  title.textContent = memos[id].name.toString()
 
   var content = document.getElementById("memo")
   content.textContent = memos[id].value

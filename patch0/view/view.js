@@ -6,15 +6,17 @@ var id = Number.parseInt(params.get('id'), 10)
 chrome.storage.local.get(['chromememo'], function(obj){
   memos = obj.chromememo
   
-  var title = document.getElementById("name")
-  $('#name').val(memos[id].name)
+  var title = document.createElement('h3')
+  title.textContent = memos[id].name.toString()
+  document.getElementById('titleview').appendChild(title)
 
-  var content = document.getElementById("memo")
-  content.textContent = memos[id].value
+  var content = document.createElement('p')
+  content.textContent = memos[id].value.toString()
+  document.getElementById('contentview').appendChild(content)
 })
 
 $('#copy_content').on('click', function() {
-  var copyTarget = document.getElementById("memo")
+  var copyTarget = document.getElementById("contentview")
   var range = document.createRange()
   range.selectNodeContents(copyTarget)
 
@@ -44,11 +46,11 @@ $('#delete_this').on('click', function() {
   }
 })
 
-$('#changetolistview').on('click', function() {
+$('#back').on('click', function() {
   location.href = '../listview/listview.html'
 })
 
-$('#changetofix').on('click', function() {
+$('#fix').on('click', function() {
   var url = new URL(window.location.href)
   var params = url.searchParams
   var id = Number.parseInt(params.get('id'), 10)

@@ -1,0 +1,189 @@
+#input_body, #view_body, #fix_body {
+    font-size: 30px;
+    color: snow;
+    width: 400px;
+    height: 330px;
+    background: #14141b;
+}
+#listview_body {
+    overflow: scroll;
+    color: snow;
+    background: #14141b;
+    width: 500px;
+    height: 330px;
+}
+.input_name {
+    width: 300px;
+}
+.view_name_title, .view_memo_title {
+    margin: auto;
+    font-size: 20px;
+}
+#name {
+    color: snow;
+    border: 2px solid #000000;
+    border-radius: 0.67em;
+    background-color: #333333;
+    width: 200px;
+    height: 25px;
+}
+
+#view_name_view {
+    color: snow;
+    border: 2px solid #000000;
+    border-radius: 0.37em;
+    background-color: #333333;
+    width: 300px;
+    height: 30px;
+}
+
+.input_memo {
+    width: 400px;
+}
+
+#memo {
+    border: 2px solid #000000;
+    border-radius: 0.67em;
+    background-color: #333333;
+    color: snow;
+    width: 370px;
+    height: 200px;
+}
+
+#view_memo_view {
+    border: 2px solid #000000;
+    border-radius: 0.67em;
+    background-color: #333333;
+    color: snow;
+    width: 370px;
+    height: 200px;
+}
+
+.button_view {
+    width: 80px;
+}
+
+.button_view_cell {
+    width: 80px;
+    display: inline-block;
+    border-radius: 10%;
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+    padding: 8px 8px;
+    color: #ffffff;
+    line-height: 1em;
+    transition: .3s;
+}
+
+#changetolistview_view, #save_view, #fix_view, #changetofix_view, #changetoinput {
+    float: right;
+    margin-left: auto;
+}
+#delete_this_view {
+    float: left;
+    margin-left: 70px;
+    margin-right: 70px;
+}
+#copy_content_view {
+    float: left;
+}
+#changetolistview {
+    background: #9580ff;
+    border : 2px solid #9580ff;
+}
+#changetolistview:hover {
+    color: #9580ff;
+    box-shadow: none;
+    background: #ffffff;
+}
+
+#save, #fix, #changetofix {
+    background: #44c500; // 89ff87;
+    border : 2px solid #44c500; // 89ff87;
+}
+#save:hover, #fix:hover, #changetofix:hover {
+    color: #44c500; // 89ff87;
+    box-shadow: none;
+    background: #ffffff;
+}
+
+#copy, #copy_content {
+    background: #53d2fe;
+    border : 2px solid #53d2fe;
+}
+#copy:hover, #copy_content:hover {
+    color: #53d2fe;
+    box-shadow: none;
+    background: #ffffff;
+}
+#delete_this {
+    background: #d70146;
+    border: 2px solid #d70146;
+}
+#delete_this:hover {
+    color: #d70146;
+    box-shadow: none;
+    background: #ffffff;
+}
+#changetoinput {
+    background: #fa7c06;
+    border: 2px solid #fa7c06;
+}
+#changetoinput:hover {
+    color: #fa7c06;
+    box-shadow: none;
+    background: #ffffff;
+}
+#list_title_view {
+    font-size: 20px;
+}
+.list_class:hover {
+    color: #000000;
+    box-shadow: none;
+    background: #ffffff;
+}
+
+.list_class {
+    width: 200px;
+    color: snow;
+    height: 70px;
+    background: #333333;
+    list-style: none;
+    float: left;
+    margin: 10px 25px 10px 0px;
+    border-radius: 0.67em;
+}
+
+.link {
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}
+
+.link:link {
+    color: snow;
+}
+.link:link:hover {
+    color: #333333;
+}
+.listview_cell {
+    width: 100%;
+    height: 100%;
+}
+.list_cell_title {
+    margin-left: 10px;
+    margin-bottom: 0px;
+    margin-top: 5px;
+    font-size: 16px;
+    width: 70%;
+    height: 20px;
+    overflow: hidden;
+}
+.list_cell_content {
+    margin-left: 30px;
+    font-size: 12px;
+    width: 70%;
+    height: 15px;
+    overflow: hidden;
+}
